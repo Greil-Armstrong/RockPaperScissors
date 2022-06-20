@@ -1,3 +1,8 @@
+// Demander utilisateur input "Rock / Paper / Scissor" et l'attribuer à une variable.
+const question = "Choose between Rock Paper Scissors."
+const playerSelection = prompt(question).toLowerCase();
+const computerSelection = computerPlay(à)
+
 // Faire attribuer à une autre variable de manière aléatoire "Rock / Paper / Scissor" par l'ordinateur.
 function computerPlay() {
     const computerSelection = () => {
@@ -14,10 +19,4 @@ function computerPlay() {
           }
       console.log(computerSelection());
 }
-
-// Demander utilisateur input "Rock / Paper / Scissor" et l'attribuer à une variable.
-const question = "Choose between Rock Paper Scissors."
-const playerSelection = prompt(question).toLowerCase();
-const computerSelection = computerPlay()
-
 // Comparer les valeurs attribuer aux deux variables et retourner le résultat.
