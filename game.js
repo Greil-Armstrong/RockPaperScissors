@@ -1,52 +1,67 @@
 // Demander utilisateur input "Rock / Paper / Scissor" et l'attribuer à une variable.
-const question = "Choose between Rock Paper Scissors."
-const playerSelection = prompt(question).toLowerCase();
-const computerSelection = computerPlay()
+let playerScore = 0
+let computerScore = 0
+function playerPlay() {
+  const question = "Choose between Rock Paper Scissors."
+  let playerChoices = prompt(question).toLowerCase();
+  return playerChoices
+}
 
 // Faire attribuer à une autre variable de manière aléatoire "Rock / Paper / Scissor" par l'ordinateur.
 function computerPlay() {
-    const computerSelection = () => {
-        const randomNumber = (Math.floor(Math.random() * 3))
-        if (randomNumber === 0){
-          return "rock";
-        }
-        else if (randomNumber === 1) {
-          return "paper";
-        }
-        else if (randomNumber === 2) {
-          return "scissors";
-        }
-          }
-      return(computerSelection());
+  let choices = ['rock', 'paper', 'scissors']
+  return choices[Math.floor(Math.random() * choices.length)]
 }
-// Comparer les valeurs attribuer aux deux variables et retourner le résultat.
-function playRound( playerSelection, computerSelection ) {
-  if (playerSelection === computerSelection) {
-    alert("Draw! Both players played " + playerSelection + "!");
+
+// Comparer les valeurs attribuées aux deux variables et retourner le résultat.
+function playRound() {
+  let playerSelection = playerPlay()
+  let computerSelection = computerPlay()
+  let result = ""
+
+  if ((playerSelection == 'rock' && computerSelection == 'scissors') ||
+      (playerSelection == 'scissors' && computerSelection == 'paper') ||
+      (playerSelection == 'paper' && computerSelection == 'rock')) {
+      
+      playerScore += 1
+      result = ('You win! ' + playerSelection + ' beats ' + computerSelection
+          + " Player score: " + playerScore + " Computer score: " + computerScore)
+
+      if (playerScore > computerScore) {
+          result += ' You are winning!'
+      }
   }
-  else if (playerSelection === "rock") {
-    if (computerSelection === "paper") {
-      alert("You lose! Paper beats Rock!");
-    }
-    else if (computerSelection === "scissors") {
-      alert("You win! Rock beats Scissors!");
-    }
+  else if (playerSelection == computerSelection) {
+      result = ('It\'s a tie. You both chose ' + playerSelection
+          + " Player score: " + playerScore + " Computer score: " + computerScore)
   }
-  else if (playerSelection === "paper") {
-    if (computerSelection === "scissors") {
-      alert("You lose! Scissors beats Paper!");
-    }
-    else if (computerSelection === "rock") {
-      alert("You win! Paper beats Rock!");
-    }
+  else {
+      computerScore += 1
+      result = ('You lose! ' + computerSelection + ' beats ' + playerSelection
+          + " Player score: " + playerScore + " Computer score: " + computerScore)
+
+      if (computerScore > playerScore) {
+          result += ' You are losing!'
+      }
   }
-  else if (playerSelection === "scissors")  {
-    if (computerSelection === "rock") {
-      alert("You lose! Rock beats Scissors!");
-    }
-    else if (computerSelection === "paper") {
-      alert("You win! Scissors beats Paper!");
-    }
+  alert(result)
+  return
+}
+
+for (let i = 0; i < 5; i++) {
+  playRound()
+}
+
+function finalResult() {
+  if (playerScore > computerScore) {
+    alert("You win the game! " + playerScore + " to " + computerScore + "!")
+  }
+  else if (playerScore < computerScore) {
+    alert("You lose the game! " + playerScore + " to " + computerScore + "!")
+  }
+  else {
+    alert("Draw!")
   }
 }
-playRound(playerSelection, computerSelection)
+
+finalResult();
