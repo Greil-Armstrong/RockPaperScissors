@@ -117,8 +117,8 @@ function updateScore() {
     scoreInfo.textContent = 'Tu as perdu !'
   }
 
-  playerScorePara.textContent = `Player: ${playerScore}`
-  computerScorePara.textContent = `Computer: ${computerScore}`
+  playerScorePara.textContent = `Joueur: ${playerScore}`
+  computerScorePara.textContent = `Ordinateur: ${computerScore}`
 }
 
 function updateScoreMessage(winner, playerSelection, computerSelection) {
