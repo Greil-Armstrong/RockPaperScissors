@@ -3,8 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="game.css" />
 </head>
 <body>
+    <header class="header">
+        <h1 class="title">PIERRE PAPIER CISEAUX</h1>
+    </header>
+    <main class="main">
+        <div class="scoreboard">
+            <h2 class="score-info" id="scoreInfo">Choisissez votre arme !</h2>
+            <h3 class="score-message" id="scoreMessage">
+                Le premier à 5 points gagne la partie !
+            </h3>
+            <div class="scores-container">
+                <div class="score-box">
+                    <div class="sign" id="playerSign">❔</div>
+                    <p class="score" id="playerScore">Joueur : 0</p>
+                </div>
+                <div class="score-box">
+                    <div class="sign" id="computerSign">❔</div>
+                    <p class="score" id="computerScore">Ordinateur : 0</p>
+                </div>
+            </div>
+        </div>
+        <div class="buttons">
+            <button class="btn btn-square" id="rockBtn">
+                <div class="sign">✊</div>
+            </button>
+            <button class="btn btn-square" id="paperBtn">
+                <div class="sign">✋</div>
+            </button>
+            <button class="btn  btn-square" id="scissorsBtn">
+                <div class="sign">✌</div>
+            </button>
+        </div>
+    </main>
+    <footer class="footer">
+        <p>
+            Thibaut CANTONNET
+            <script>
+                document.write(new Date().getFullYear())
+            </script>
+        </p>
+    </footer>
+    <div class="modal" id="endgameModal">
+        <p class="modal-title" id="endgameMsg"></p>
+        <button class="btn btn-restart" id="restartBtn">Recommencer ?</button>
+    </div>
+    <div class="overlay" id="overlay"></div>
     <script src="/home/thibaut/repos/RockPaperScissors/game.js"></script>
 </body>
 </html>
